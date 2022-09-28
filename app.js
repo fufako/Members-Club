@@ -56,16 +56,6 @@ app.use(function (err, req, res, next) {
   res.render("error")
 })
 
-app.use(session({ secret: "cats", resave: false, saveUninitialized: true }))
-app.use(passport.initialize())
-app.use(passport.session())
-app.use(express.urlencoded({ extended: false }))
-
-app.use(function (req, res, next) {
-  res.locals.currentUser = req.user
-  next()
-})
-
 const PORT = process.env.PORT || 8000
 app.listen(PORT, () => {
   console.log("Server running on port " + PORT)
