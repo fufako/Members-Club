@@ -1,17 +1,10 @@
 const express = require("express")
 const router = express.Router()
-const passport = require("passport")
+const auth_controller = require("../controllers/authController")
 
-/* GET users listing. */
 router.get("/", function (req, res, next) {
   res.render("login")
 })
-router.post(
-  "/",
-  passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/",
-  })
-)
+router.post("/", auth_controller.login_post)
 
 module.exports = router
