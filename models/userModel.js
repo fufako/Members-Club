@@ -7,6 +7,7 @@ const UserSchema = new Schema(
     name: String,
     password: String,
     avatar: String,
+    status: String,
   },
   {
     collection: "users",
