@@ -1,3 +1,42 @@
+* {
+  outline: solid red 1px;
+}
 body {
   background-color: antiquewhite;
+  margin: 0px;
+}
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.posts-container {
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  width: 100%;
+}
+.info-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.footer img {
+  width: 80px;
+  height: 80px;
+}
+.footer p {
+  font-size: 1.5rem;
 }

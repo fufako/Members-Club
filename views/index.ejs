@@ -9,10 +9,23 @@
     <title>MembersClub</title>
   </head>
   <body>
-    MembersClub <% if (user) {%>
-    <h1>WELCOME BACK <%= user.name %></h1>
-    <img src="<%= user.avatar %>" alt="" />
-    <a href="/logout">LOG OUT</a>
-    <% } else {%> <a href="/login">LOG IN</a> <%}%>
+    <div class="main-container">
+      <div class="header">
+        <h1>MembersClub</h1>
+        <p class="login">
+          <% if(user){ %> <a href="/logout">LOG OUT</a> <%} else {%>
+          <a href="/login">LOG IN</a> <%}%>
+        </p>
+      </div>
+      <div class="posts-container"></div>
+      <div class="footer">
+        <% if(user){ %>
+        <div class="info-footer">
+          <img src="<%= user.avatar %>" alt="" />
+          <p class="footer-name"><%= user.name %></p>
+          <%} else {}%>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -34,7 +34,7 @@ router.post("/", (req, res) => {
       if (err) {
         return next(err)
       }
-      res.redirect("/signup/success")
+      res.redirect("/")
     })
   })
 })
