@@ -15,6 +15,7 @@ const User = require("./models/userModel")
 const indexRouter = require("./routes/index")
 const loginRouter = require("./routes/login")
 const signupRouter = require("./routes/signup")
+const logoutRouter = require("./routes/logout")
 
 const app = express()
 
@@ -48,7 +49,6 @@ app.use(express.urlencoded({ extended: false }))
 passport.use(
   new LocalStrategy((username, password, done) => {
     User.findOne({ name: username }, (err, user) => {
-      console.log("here")
       if (err) return done(err)
       if (!user) return done(null, false, { message: "Incorrect username" })
       bcrypt.compare(password, user.password, (err, res) => {
@@ -65,10 +65,10 @@ passport.use(
 app.use("/", indexRouter)
 app.use("/login", loginRouter)
 app.use("/signup", signupRouter)
+app.use("/logout", logoutRouter)
 
 app.use((req, res, next) => {
   res.locals.currentUser = req.user
-  console.log(req.user)
   next()
 })
 passport.serializeUser(function (user, done) {

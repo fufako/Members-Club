@@ -9,6 +9,9 @@
     <title>MembersClub</title>
   </head>
   <body>
-    MembersClub
+    MembersClub <% if (user) {%>
+    <h1>WELCOME BACK <%= user.name %></h1>
+    <a href="/logout">LOG OUT</a>
+    <% } else {%> <a href="/login">LOG IN</a> <%}%>
   </body>
 </html>
