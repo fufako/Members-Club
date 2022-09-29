@@ -18,9 +18,15 @@ exports.member = function (req, res, next) {
   res.render("member")
 }
 exports.member_post = function (req, res, next) {
-  User.findOne({ _id: res.locals.currentUser._id }, (err, user) => {
-    user.status = "member"
-    user.save()
-  })
-  res.redirect("/")
+  if (req.body.password != process.env.MEMBER_PASS) {
+    console.log("worng pass")
+    console.log(process.env.MEMBER_PASS)
+    console.log(req.body.password)
+  } else {
+    User.findOne({ _id: res.locals.currentUser._id }, (err, user) => {
+      user.status = "member"
+      user.save()
+    })
+    res.redirect("/")
+  }
 }
