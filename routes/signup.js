@@ -19,22 +19,34 @@ const getRandomInt = () => {
 }
 
 router.get("/", function (req, res, next) {
-  res.render("signup")
+  res.render("signup", { exists: false })
 })
 
 router.post("/", (req, res) => {
   bcrypt.hash(req.body.password, 10, (err, hashedPassword) => {
     if (err) return next(err)
 
-    const user = new User({
-      name: req.body.username,
-      password: hashedPassword,
-      avatar: avatars[getRandomInt()],
-    }).save((err) => {
+    let exists = false
+    User.exists({ name: req.body.username }, (err, result) => {
       if (err) {
-        return next(err)
+        console.log(err)
+      } else {
+        if (result) {
+          console.log(User.exists({ name: req.body.username }))
+          res.render("signup", { exists: true })
+        } else {
+          const user = new User({
+            name: req.body.username,
+            password: hashedPassword,
+            avatar: avatars[getRandomInt()],
+          }).save((err) => {
+            if (err) {
+              return next(err)
+            }
+            res.redirect("/login")
+          })
+        }
       }
-      res.redirect("/")
     })
   })
 })

@@ -11,12 +11,13 @@
   <body>
     <div class="main-container">
       <div class="header">
-        <h1>MembersClub</h1>
+        <h1><a href="/">MembersClub</a></h1>
         <p class="login">
           <% if(user){ %> <a href="/member">Become a member</a>
           <a href="/create">Create new post</a>
           <a href="/logout">LOG OUT</a> <%} else {%>
-          <a href="/login">LOG IN</a> <%}%>
+          <a href="/signup">Sign up</a>
+          <a href="/login">Log in</a> <%}%>
         </p>
       </div>
       <div class="posts-container">

@@ -8,7 +8,9 @@
     <title>MembersClub</title>
   </head>
   <body>
-    Signup
+    Signup <% if(exists) { %>
+    <p>User exists</p>
+    <% } %>
     <form action="" method="POST">
       <label for="username">Username</label>
       <input name="username" placeholder="username" type="text" />

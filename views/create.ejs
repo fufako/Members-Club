@@ -8,11 +8,25 @@
     <title>MembersClub</title>
   </head>
   <body>
+    <div class="header">
+      <h1><a href="/">MembersClub</a></h1>
+      <p class="login">
+        <% if(user){ %> <a href="/member">Become a member</a>
+        <a href="/create">Create new post</a>
+        <a href="/logout">LOG OUT</a> <%} else {%>
+        <a href="/signup">Sign up</a>
+        <a href="/login">Log in</a> <%}%>
+      </p>
+    </div>
+    <% if(user){ %>
     <h1>Create a post</h1>
     <form action="/create" method="POST">
       <label for="content">Content</label>
       <input name="content" placeholder="content" type="text" />
       <button>Post</button>
     </form>
+    <% } else { %>
+    <div>Please login to create a post</div>
+    <%}%>
   </body>
 </html>
