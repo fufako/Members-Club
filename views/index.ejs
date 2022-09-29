@@ -25,8 +25,13 @@
         <div class="post">
           <p class="content"><%=post.content %></p>
           <div class="post-info">
-            <p class="author"><%=post.author.name %></p>
-            <p class="date"><%=post.date %></p>
+            <p class="author">
+              <img src="/images/author.png" alt="author" /> <%=post.author.name
+              %>
+            </p>
+            <p class="date">
+              <img src="/images/date.png" alt="date" /> <%=post.date %>
+            </p>
           </div>
         </div>
         <% } %>
@@ -35,7 +40,7 @@
         <% if(user){ %>
         <div class="info-footer">
           <img src="<%= user.avatar %>" alt="" />
-          <p class="footer-name"><%= user.name %></p>
+          <p class="footer-name"><%= user.name %> (<%=user.status %>)</p>
           <%} else {}%>
         </div>
       </div>
