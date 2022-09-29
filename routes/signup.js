@@ -20,9 +20,9 @@ router.post("/", (req, res) => {
       if (err) {
         return next(err)
       }
-      res.redirect("/")
-      console.log("asfdsdfg")
+      res.redirect("/signup/success")
     })
   })
 })
+
 module.exports = router
