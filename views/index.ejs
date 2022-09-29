@@ -23,7 +23,11 @@
       <div class="posts-container">
         <% for(post of posts) {%>
         <div class="post">
-          <p><%=post.content %></p>
+          <p class="content"><%=post.content %></p>
+          <div class="post-info">
+            <p class="author"><%=post.author.name %></p>
+            <p class="date"><%=post.date %></p>
+          </div>
         </div>
         <% } %>
       </div>

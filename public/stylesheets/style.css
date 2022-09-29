@@ -2,7 +2,6 @@
   outline: solid red 1px;
 }
 body {
-  background-color: antiquewhite;
   margin: 0px;
 }
 .main-container {
@@ -17,8 +16,25 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  box-shadow: 0px 16px 29px -26px rgba(66, 68, 90, 1);
 }
 .posts-container {
+}
+.post {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.content {
+  text-align: justify;
+}
+.author {
+  text-align: center;
+}
+.date {
+  text-align: center;
 }
 .footer {
   display: flex;
@@ -26,6 +42,7 @@ body {
   align-items: center;
   margin-top: auto;
   width: 100%;
+  box-shadow: 0px -16px 29px -26px rgba(66, 68, 90, 1);
 }
 .info-footer {
   display: flex;
