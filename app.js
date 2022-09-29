@@ -16,6 +16,7 @@ const indexRouter = require("./routes/index")
 const loginRouter = require("./routes/login")
 const signupRouter = require("./routes/signup")
 const logoutRouter = require("./routes/logout")
+const postRouter = require("./routes/post")
 
 const app = express()
 
@@ -62,11 +63,6 @@ passport.use(
   })
 )
 
-app.use("/", indexRouter)
-app.use("/login", loginRouter)
-app.use("/signup", signupRouter)
-app.use("/logout", logoutRouter)
-
 app.use((req, res, next) => {
   res.locals.currentUser = req.user
   next()
@@ -79,7 +75,11 @@ passport.deserializeUser(function (id, done) {
     done(err, user)
   })
 })
-
+app.use("/", indexRouter)
+app.use("/login", loginRouter)
+app.use("/signup", signupRouter)
+app.use("/logout", logoutRouter)
+app.use("/create", postRouter)
 const PORT = process.env.PORT || 8000
 app.listen(PORT, () => {
   console.log("Server running on port " + PORT)
