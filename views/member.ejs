@@ -18,15 +18,17 @@
         <a href="/login">Log in</a> <%}%>
       </p>
     </div>
-    <% if(user){ %>
+    <% if(user.status === "member"){ %> <% console.log(user.status) %>
+    <p>U are a member</p>
+    <% } else if(user) { %>
     <h1>Become a member</h1>
     <form action="" method="POST">
       <label for="password">Password</label>
       <input name="password" type="password" />
       <button>Log In</button>
     </form>
-    <% } else { %>
+    <%} else {%>
     <div>Please login to become a member</div>
-    <%}%>
+    <% } %>
   </body>
 </html>
