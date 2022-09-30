@@ -28,6 +28,13 @@ body {
   margin: 0px;
   font-family: "Poppins", sans-serif;
 }
+.error {
+  font-size: 3rem;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  color: #343a40;
+  padding: 100px;
+}
 .main-container {
   display: flex;
   flex-direction: column;
