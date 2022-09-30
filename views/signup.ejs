@@ -15,19 +15,23 @@
         <a href="/login">Log in</a>
       </p>
     </div>
-    Signup <% if(exists) { %>
-    <p>User exists</p>
-    <% } %> <% if(!length) { %>
-    <p>Username must be a least 5 characters long</p>
-    <% } %> <% if(!pass_length) { %>
-    <p>Password must be a least 5 characters long</p>
-    <% } %>
-    <form method="POST">
-      <label for="username">Username</label>
-      <input name="username" placeholder="username" type="text" />
-      <label for="password">Password</label>
-      <input name="password" type="password" />
-      <button>Sign Up</button>
-    </form>
+    <div class="login-container">
+      <h2>Signup</h2>
+
+      <form method="POST">
+        <label for="username">Username</label>
+        <input name="username" placeholder="Username" type="text" />
+        <label for="password">Password</label>
+        <input name="password" type="password" placeholder="Password" />
+        <button>Sign up</button>
+      </form>
+      <% if(exists) { %>
+      <p class="bad">User already exists</p>
+      <% } %> <% if(!length) { %>
+      <p class="bad">Username must be a least 5 characters long</p>
+      <% } %> <% if(!pass_length) { %>
+      <p class="bad">Password must be a least 5 characters long</p>
+      <% } %>
+    </div>
   </body>
 </html>

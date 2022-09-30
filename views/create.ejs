@@ -19,13 +19,19 @@
           <a href="/login">Log in</a> <%}%>
         </p>
       </div>
-      <% if(user){ %>
-      <h1>Create a post</h1>
-      <form action="/create" method="POST">
-        <label for="content">Content</label>
-        <input name="content" placeholder="content" type="text" />
-        <button>Post</button>
-      </form>
+      <div class="create-post-container">
+        <% if(user){ %>
+        <h1>Create a post</h1>
+        <form action="/create" method="POST">
+          <input
+            name="content"
+            placeholder="What's on your mind?"
+            type="text"
+            class="post-input"
+          />
+          <button>Post</button>
+        </form>
+      </div>
       <% } else { %>
       <div>Please login to create a post</div>
       <%}%>
@@ -33,7 +39,7 @@
         <% if(user){ %>
         <div class="info-footer">
           <img src="<%= user.avatar %>" alt="" />
-          <p class="footer-name"><%= user.name %></p>
+          <p class="footer-name"><%= user.name %> (<%=user.status %>)</p>
           <%} else {}%>
         </div>
       </div>

@@ -31,11 +31,10 @@ router.post("/", (req, res) => {
         console.log(err)
       } else {
         if (result) {
-          console.log(User.exists({ name: req.body.username }))
           res.render("signup", {
             exists: true,
-            length: false,
-            pass_length: false,
+            length: true,
+            pass_length: true,
           })
         } else if (
           req.body.username.trim().length < 5 &&

@@ -26,8 +26,9 @@
           <p class="content"><%=post.content %></p>
           <div class="post-info">
             <p class="author">
-              <img src="/images/author.png" alt="author" /> <%=post.author.name
-              %>
+              <img src="/images/author.png" alt="author" />
+              <% if(user && user.status === "member") {%> <%=post.author.name %>
+              <% } else { %> Anonymous <% } %>
             </p>
             <p class="date">
               <img src="/images/date.png" alt="date" /> <%=post.date %>

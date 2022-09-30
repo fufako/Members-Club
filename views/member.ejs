@@ -20,14 +20,16 @@
         </p>
       </div>
       <% if(user.status === "member"){ %> <% console.log(user.status) %>
-      <p>U are a member</p>
+      <p class="you-are">You are a member! <br />Very cool.</p>
       <% } else if(user) { %>
-      <h1>Become a member</h1>
-      <form action="" method="POST">
-        <label for="password">Password</label>
-        <input name="password" type="password" />
-        <button>Log In</button>
-      </form>
+      <div class="become-member">
+        <h2>Become a member</h2>
+        <form action="" method="POST">
+          <label for="password">Password</label>
+          <input name="password" type="password" />
+          <button>Let's go!</button>
+        </form>
+      </div>
       <%} else {%>
       <div>Please login to become a member</div>
       <% } %>
@@ -35,7 +37,7 @@
         <% if(user){ %>
         <div class="info-footer">
           <img src="<%= user.avatar %>" alt="" />
-          <p class="footer-name"><%= user.name %></p>
+          <p class="footer-name"><%= user.name %> (<%=user.status %>)</p>
           <%} else {}%>
         </div>
       </div>
