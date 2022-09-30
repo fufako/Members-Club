@@ -29,6 +29,9 @@
           <input name="password" type="password" />
           <button>Let's go!</button>
         </form>
+        <% if(!passGood) {%>
+        <p class="bad">Password to become a member is incorrect</p>
+        <% } %>
       </div>
       <%} else {%>
       <div>Please login to become a member</div>
