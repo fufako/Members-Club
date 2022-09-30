@@ -19,25 +19,56 @@ const getRandomInt = () => {
 }
 
 router.get("/", function (req, res, next) {
-  res.render("signup", { exists: false })
+  res.render("signup", { exists: false, length: true, pass_length: true })
 })
 
 router.post("/", (req, res) => {
   bcrypt.hash(req.body.password, 10, (err, hashedPassword) => {
     if (err) return next(err)
 
-    let exists = false
     User.exists({ name: req.body.username }, (err, result) => {
       if (err) {
         console.log(err)
       } else {
         if (result) {
           console.log(User.exists({ name: req.body.username }))
-          res.render("signup", { exists: true })
+          res.render("signup", {
+            exists: true,
+            length: false,
+            pass_length: false,
+          })
+        } else if (
+          req.body.username.trim().length < 5 &&
+          req.body.password.trim().length < 5
+        ) {
+          res.render("signup", {
+            length: false,
+            exists: false,
+            pass_length: false,
+          })
+        } else if (
+          req.body.password.trim().length < 5 &&
+          req.body.username.trim().length > 5
+        ) {
+          res.render("signup", {
+            pass_length: false,
+            exists: false,
+            length: true,
+          })
+        } else if (
+          req.body.password.trim().length > 5 &&
+          req.body.username.trim().length < 5
+        ) {
+          res.render("signup", {
+            pass_length: true,
+            exists: false,
+            length: false,
+          })
         } else {
           const user = new User({
             name: req.body.username,
             password: hashedPassword,
+            status: "User",
             avatar: avatars[getRandomInt()],
           }).save((err) => {
             if (err) {

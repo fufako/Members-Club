@@ -17,8 +17,12 @@
     </div>
     Signup <% if(exists) { %>
     <p>User exists</p>
+    <% } %> <% if(!length) { %>
+    <p>Username must be a least 5 characters long</p>
+    <% } %> <% if(!pass_length) { %>
+    <p>Password must be a least 5 characters long</p>
     <% } %>
-    <form action="" method="POST">
+    <form method="POST">
       <label for="username">Username</label>
       <input name="username" placeholder="username" type="text" />
       <label for="password">Password</label>
