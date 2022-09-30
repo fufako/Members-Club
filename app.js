@@ -27,7 +27,8 @@ app.set("view engine", "ejs")
 //Database setup
 const mongoose = require("mongoose")
 
-const mongoDB = process.env.MONGO_KEY
+const mongoDB =
+  "mongodb+srv://fufako:lubieplacki1@cluster0.qna9eg1.mongodb.net/users?retryWrites=true&w=majority"
 
 mongoose.connect(mongoDB, {
   useNewUrlParser: true,

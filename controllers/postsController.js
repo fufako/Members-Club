@@ -18,7 +18,7 @@ exports.member = function (req, res, next) {
   res.render("member", { user: res.locals.currentUser, passGood: true })
 }
 exports.member_post = function (req, res, next) {
-  if (req.body.password != process.env.MEMBER_PASS) {
+  if (req.body.password != "iwantmember") {
     res.render("member", { passGood: false, user: res.locals.currentUser })
   } else {
     User.findOne({ _id: res.locals.currentUser._id }, (err, user) => {
