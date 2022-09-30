@@ -263,3 +263,44 @@ h2 {
   width: 200px;
   font-size: 1rem;
 }
+@media (max-width: 768px) {
+  .header {
+    min-width: 0;
+    margin: 0 auto;
+    width: 100%;
+    flex-direction: column;
+  }
+  h1 {
+    font-size: 1.5rem;
+    margin-top: 10;
+  }
+  .posts-container {
+    min-width: 0;
+    margin-bottom: 20px;
+  }
+  .post {
+    min-width: 0;
+    max-width: 300px;
+  }
+  .content {
+    display: block;
+    min-width: 0;
+  }
+  .post-info {
+    width: 100%;
+  }
+  .author {
+    display: flex;
+    min-width: 0;
+  }
+  .date {
+    display: flex;
+    min-width: 0;
+  }
+  .footer {
+    visibility: hidden;
+  }
+  .login {
+    margin: 5px;
+  }
+}
