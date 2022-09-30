@@ -4,13 +4,13 @@ Users that are members are able to see authors of posts, while default users do 
 
 ## Features
 
-- [x] Sign up
-- [x] Sign in
-- [x] Create a post
-- [x] Save users into a database
-- [x] Authentication via passportJS
-- [x] Secure passwords with bcrypt
-- [x] Mobile responsiveness
+-✅ Sign up
+-✅Sign in
+-✅ Create a post
+-✅ Save users into a database
+-✅ Authentication via passportJS
+-✅Secure passwords with bcrypt
+-✅Mobile responsiveness
 
 ## Live app
 
